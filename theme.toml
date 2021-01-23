@@ -3,7 +3,7 @@
 
 name = "Blue Ocean"
 license = "MIT"
-licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE"
+licenselink = "https://github.com/diazvictor/blue-ocean/blob/master/LICENSE"
 description = "Blue Ocean is a responsive, clean and content-focused Hugo theme."
 homepage = "http://diazvictor.github.io/"
 tags = [
