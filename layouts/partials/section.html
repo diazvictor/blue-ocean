@@ -1,5 +1,5 @@
 <section class="section">
-    {{ range first .Site.Params.recent_num .Data.Pages }}
+	{{ range (.Paginator .Site.Params.recent_num).Pages }}
     {{ if eq .Type "post"}}
     <article class="box">
         <header>
@@ -22,4 +22,29 @@
     </article>
     {{ end }}
     {{ end }}
+
+	{{ if (gt .Paginator.TotalPages 1) }}
+    <nav class="pagination" role="navigation" aria-label="pagination">
+		{{ if .Paginator.HasPrev }}
+		<a href="{{ .Paginator.Prev.URL }}" class="pagination-previous">Previous</a>
+		{{ else }}
+		<a class="pagination-previous" disabled>Previous</a>
+		{{ end }}
+
+		{{ if .Paginator.HasNext }}
+		<a href="{{ .Paginator.Next.URL }}" class="pagination-next">Next page</a>
+		{{ else }}
+			<a class="pagination-next" disabled>Next page</a>
+		{{ end }}
+
+		<ul class="pagination-list">
+			{{ $pageCurrent := .Paginator.PageNumber }}
+			{{ range .Paginator.Pagers }}
+			<li>
+				<a href="/post/page/{{ .PageNumber }}/" class="pagination-link {{ if eq .PageNumber $pageCurrent }}is-current{{ end }}">{{ .PageNumber }}</a>
+			</li>
+			{{ end }}
+		</ul>
+	</nav>
+	{{ end }}
 </section>
