@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html lang="">
-{{- partial "head.html" . -}}
-<body>
-	{{- partial "header.html" . -}}
+{{ define "main" }}
 	{{ if .Site.Params.sidebar.sidebar }}
 	<div class="columns">
 		<div class="column is-8">
@@ -13,6 +9,4 @@
 	{{ else }}
 	{{- partial "section.html" . -}}
 	{{ end }}
-	{{- partial "footer.html" . -}}
-</body>
-</html>
+{{ end }}
