@@ -48,6 +48,7 @@
 @media screen and (max-width:769px) {	
 	.section.sidebar {
 		padding: 0rem 1.5rem;
+		margin-bottom: 3rem;
 	}
 	.section.sidebar .title:after {
 		content: " -";
