@@ -1,0 +1,75 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Blue Ocean"
+theme = "blue-ocean"
+disqusShortname = "" # Enable comments by entering your Disqus shortname
+
+[params]
+author = "John Doe"
+subtitle = "Full Stack DevOps and Magician" # Subtitle of your site
+description = "John Doe's personal website" # Description of your site
+copyright = "© 2020"
+keywords = "blog, developer, personal" # Site keywords.
+avatar = "/images/favicon.png"
+mainSections = ["post"]
+dateFormat = "2 January, 2006"
+recent_num = 4 # Series see also post count
+readTime_post = true # Show "Read more" button in list if true
+
+[menu]
+	[[menu.item]]
+	name = "BLOG"
+    url = "/post"
+    weight = 1
+
+	[[menu.item]]
+	name = "ABOUT"
+    url = "/about"
+    weight = 2
+
+[params.sidebar]
+sidebar = true
+widgets = ["aboutbox", "recent", "categories", "taglist"] # Enable widgets in given order
+
+[params.widgets]
+aboutbox_description = "John Doe's true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it."
+recent_num = 3 # Set the number of articles in the "Recent articles" widget
+scrolltop = true
+social_footer = true
+
+[[params.social]]
+    name = "Github"
+    color = "is-link"
+    icon = "fab fa-github"
+    weight = 1
+    url = "https://github.com/johndoe/"
+[[params.social]]
+    name = "Gitlab"
+    color = "is-link"
+    icon = "fab fa-gitlab"
+    weight = 2
+    url = "https://gitlab.com/johndoe/"
+[[params.social]]
+    name = "Twitter"
+    color = "is-link"
+    icon = "fab fa-twitter"
+    weight = 3
+    url = "https://twitter.com/johndoe/"
+[[params.social]]
+    name = "LinkedIn"
+    color = "is-link"
+    icon = "fab fa-linkedin"
+    weight = 4
+    url = "https://www.linkedin.com/in/johndoe/"
+[[params.social]]
+    name = "Medium"
+    color = "is-link"
+    icon = "fab fa-medium"
+    weight = 5
+    url = "https://medium.com/@johndoe"
+[[params.social]]
+    name = "RSS"
+    color = "is-link"
+    icon = "fas fa-rss"
+    weight = 6
+    url = "https://myhugosite.com/index.xml"
