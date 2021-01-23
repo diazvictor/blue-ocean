@@ -22,11 +22,11 @@
                     {{ . }}
                 </h2>
                 {{ end }}
-                {{ with .Site.Params.social }}
-                {{ range sort . "weight" }}
-				<a href="{{ .url }}" target="_blank" data-size="large"><u>{{ .name }}</u></a>
-                {{ end }}
-                {{ end }}
+				<!-- https://stackoverflow.com/questions/59565101/hugo-list-tags-with-link-and-comma-separated -->
+                {{ range $i, $v := sort .Site.Params.social "weight" }}
+					{{ if $i }}| {{ end }}
+					<a href="{{ $v.url }}" target="_blank" data-size="large"><u>{{ $v.name }}</u></a>
+				{{ end }}
 			</div>
 		</div>
 	</section>
