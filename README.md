@@ -1,4 +1,4 @@
-## Blue Ocean
+![Blue Ocean Screenshot](https://github.com/diazvictor/blue-ocean/blob/master/images/screenshot.png)
 
 A responsive, clean and content-focused [Hugo](https://gohugo.io/) theme.
 
