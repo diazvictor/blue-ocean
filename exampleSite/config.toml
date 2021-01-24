@@ -4,6 +4,16 @@ title = "Blue Ocean"
 theme = "blue-ocean"
 disqusShortname = "" # Enable comments by entering your Disqus shortname
 
+[markup]
+  [markup.highlight]
+    anchorLineNos = true
+    codeFences = true
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "monokailight"
+    tabWidth = 4
+
 [params]
 author = "John Doe"
 subtitle = "Full Stack DevOps and Magician" # Subtitle of your site
