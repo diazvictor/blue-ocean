@@ -13,7 +13,7 @@
         </header>
         {{ if .Summary }}
         <br>
-        {{ .Summary }}
+        <p>{{ .Summary }}</p>
         <footer>
             <br>
             <a href="{{.RelPermalink}}" class="button is-link">Read More &raquo;</a>
@@ -41,7 +41,7 @@
 			{{ $pageCurrent := .Paginator.PageNumber }}
 			{{ range .Paginator.Pagers }}
 			<li>
-				<a href="/post/page/{{ .PageNumber }}/" class="pagination-link {{ if eq .PageNumber $pageCurrent }}is-current{{ end }}">{{ .PageNumber }}</a>
+				<a {{ if eq .PageNumber $pageCurrent }}{{else}}href="/post/page/{{ .PageNumber }}/"{{ end }} class="pagination-link {{ if eq .PageNumber $pageCurrent }}is-current{{ end }}">{{ .PageNumber }}</a>
 			</li>
 			{{ end }}
 		</ul>

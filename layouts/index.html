@@ -26,7 +26,7 @@
                 {{ range $i, $v := sort .Site.Params.social "weight" }}
 					{{ if $v.name }}
 					{{ if $i }}| {{ end }}
-					<a href="{{ $v.url }}" target="_blank" data-size="large"><u>{{ $v.name }}</u></a>
+					<a href="{{ $v.url }}" class="has-text-white" target="_blank" data-size="large"><u>{{ $v.name }}</u></a>
 					{{ end }}
 				{{ end }}
 			</div>
