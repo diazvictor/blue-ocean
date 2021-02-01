@@ -10,8 +10,7 @@ disqusShortname = "" # Enable comments by entering your Disqus shortname
     codeFences = true
     lineNos = false
     lineNumbersInTable = true
-    noClasses = true
-    style = "monokailight"
+    noClasses = false
     tabWidth = 4
 
 [params]
@@ -49,37 +48,31 @@ social_footer = true
 
 [[params.social]]
     name = "Github"
-    color = "is-link"
     icon = "fab fa-github"
     weight = 1
     url = "https://github.com/johndoe/"
 [[params.social]]
     name = "Gitlab"
-    color = "is-link"
     icon = "fab fa-gitlab"
     weight = 2
     url = "https://gitlab.com/johndoe/"
 [[params.social]]
     name = "Twitter"
-    color = "is-link"
     icon = "fab fa-twitter"
     weight = 3
     url = "https://twitter.com/johndoe/"
 [[params.social]]
     name = "LinkedIn"
-    color = "is-link"
     icon = "fab fa-linkedin"
     weight = 4
     url = "https://www.linkedin.com/in/johndoe/"
 [[params.social]]
     name = "Medium"
-    color = "is-link"
     icon = "fab fa-medium"
     weight = 5
     url = "https://medium.com/@johndoe"
 [[params.social]]
     name = "RSS"
-    color = "is-link"
     icon = "fas fa-rss"
     weight = 6
     url = "https://myhugosite.com/index.xml"
