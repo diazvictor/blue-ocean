@@ -1,5 +1,6 @@
 {{ if .IsHome }}
 <script type="text/javascript" src="{{ $.Site.BaseURL }}js/nav-burger.js"></script>
+<script type="text/javascript" src="{{ $.Site.BaseURL }}js/toggle-theme.js"></script>
 {{ else }}
 <footer class="footer has-background-info">
 	<div class="content has-text-white">
@@ -9,7 +10,7 @@
 			<div class="column is-11">
 				<div class="buttons">
 					{{ range sort . "weight" }}
-					<a href="{{ .url }}" class="button {{ .color }} is-medium">
+					<a href="{{ .url }}" class="button is-link is-medium">
 						<span class="icon">
 							<i class="{{ .icon }}"></i>
 						</span>
@@ -33,7 +34,7 @@
 		</div>
 		<hr>
 		<p>
-			{{ .Site.Params.copyright }} {{ .Site.Title }} · Powered by <a href="https://gohugo.io/" class="has-text-white">Hugo</a> & <a href="http://bulma.io/" class="has-text-white">Bulma</a>. 
+			{{ .Site.Params.copyright }} {{ .Site.Title }} · Powered by <a href="https://gohugo.io/" class="has-text-white"><u>Hugo</u></a> & <a href="http://bulma.io/" class="has-text-white"><u>Bulma</u></a>. 
 		</p>
 		{{ with .Site.Params.widgets.scrolltop }}
 		<div class="buttons is-centered is-hidden-tablet">
@@ -48,4 +49,5 @@
 </footer>
 <script type="text/javascript" src="{{ $.Site.BaseURL | relLangURL }}js/nav-burger.js"></script>
 <script type="text/javascript" src="{{ $.Site.BaseURL | relLangURL }}js/back_to_top.js"></script>
+<script type="text/javascript" src="{{ $.Site.BaseURL | relLangURL }}js/toggle-theme.js"></script>
 {{ end }}
