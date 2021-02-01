@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="{{ $.Site.BaseURL | relLangURL }}css/bulma.min.css">
     <!-- Custom Styles -->
     <link rel="stylesheet" href="{{ $.Site.BaseURL | relLangURL }}css/custom.css">
+    <link rel="stylesheet" href="{{ $.Site.BaseURL | relLangURL }}css/custom-dark.css">
     <!-- Font Awesome 5 -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5/css/all.min.css">
+	<link rel="stylesheet" href="{{ $.Site.BaseURL | relLangURL }}css/all.min.css">
 	{{ with .OutputFormats.Get "rss" -}}
 	{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
 	{{ end -}}
