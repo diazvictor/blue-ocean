@@ -1,6 +1,12 @@
 {{ if .IsHome }}
 <script type="text/javascript" src="{{ $.Site.BaseURL }}js/nav-burger.js"></script>
 <script type="text/javascript" src="{{ $.Site.BaseURL }}js/toggle-theme.js"></script>
+<script type="text/javascript">
+	window.addEventListener('load', function() {
+		var url = window.location.href;
+		sessionStorage.setItem('lastPage', url);
+	});
+</script>
 {{ else }}
 <footer class="footer has-background-info">
 	<div class="content has-text-white">
@@ -50,4 +56,10 @@
 <script type="text/javascript" src="{{ $.Site.BaseURL | relLangURL }}js/nav-burger.js"></script>
 <script type="text/javascript" src="{{ $.Site.BaseURL | relLangURL }}js/back_to_top.js"></script>
 <script type="text/javascript" src="{{ $.Site.BaseURL | relLangURL }}js/toggle-theme.js"></script>
+<script type="text/javascript">
+	window.addEventListener('load', function() {
+		var url = window.location.href;
+		sessionStorage.setItem('lastPage', url);
+	});
+</script>
 {{ end }}
