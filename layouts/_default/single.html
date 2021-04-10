@@ -3,7 +3,7 @@
 	<div class="columns">
 		<div class="column is-8">
 			<section class="section">
-			    <article class="box">
+			    <article>
 					<div class="content">
 						{{- .Content -}}
 					</div>
@@ -11,6 +11,7 @@
 				{{- $post := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
 			    {{- if $post }}
 			    {{ if or .NextInSection .PrevInSection }}
+			    <hr>
 				<nav class="bd-prev-next-bis">
 					{{ if .NextInSection }}
 					<a class="bd-prev-next-bis-previous" href="{{ .NextInSection.Permalink }}" title="{{.NextInSection.Title}}">
@@ -32,7 +33,7 @@
 	</div>
 	{{ else }}
 	<section class="section">
-	    <article class="box">
+	    <article>
 			<div class="content">
 				{{- .Content -}}
 			</div>
