@@ -1,40 +1,45 @@
-baseURL = "/"
+baseURL = "http://localhost:1313/"
+publishDir = "public"
 languageCode = "en-us"
 title = "Blue Ocean"
 theme = "blue-ocean"
 disqusShortname = "" # Enable comments by entering your Disqus shortname
 
+# Language settings
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+
 [markup]
-  [markup.highlight]
-    anchorLineNos = true
-    codeFences = true
-    lineNos = false
-    lineNumbersInTable = true
-    noClasses = false
-    tabWidth = 4
+	[markup.highlight]
+		anchorLineNos = true
+		codeFences = true
+		lineNos = false
+		lineNumbersInTable = true
+		noClasses = false
+		tabWidth = 4
 
 [params]
 author = "John Doe"
 subtitle = "Full Stack DevOps and Magician" # Subtitle of your site
 description = "John Doe's personal website" # Description of your site
-copyright = "© 2020"
+copyright = "© 2021 Blue Ocean"
 keywords = "blog, developer, personal" # Site keywords.
 avatar = "/images/favicon.png"
 mainSections = ["post"]
 dateFormat = "2 January, 2006"
 recent_num = 4 # Series see also post count
-readTime_post = true # Show "Read more" button in list if true
+readtime = true
 
 [menu]
 	[[menu.item]]
-	name = "BLOG"
-    url = "/post"
-    weight = 1
+		name = "BLOG"
+		url = "/post"
+		weight = 1
 
 	[[menu.item]]
-	name = "ABOUT"
-    url = "/about"
-    weight = 2
+		name = "ABOUT"
+		url = "/about"
+		weight = 2
 
 [params.sidebar]
 sidebar = true
@@ -45,6 +50,29 @@ aboutbox_description = "John Doe's true identity is unknown. Maybe he is a succe
 recent_num = 3 # Set the number of articles in the "Recent articles" widget
 scrolltop = true
 social_footer = true
+
+[languages]
+	[languages.en]
+		contentDir = "content/en"
+		languageName = "English"
+		weight = 1
+	[languages.es]
+		title = "Blue Ocean"
+		author = "John Doe"
+		subtitle = "Full Stack DevOps y Magico"
+		description = "Sitio web personal de John Doe"
+		contentDir = "content/es"
+		languageName = "Spanish"
+		weight = 2
+		[languages.es.menu]
+			[[languages.es.menu.item]]
+				name = "ARTICULOS"
+				url = "/post"
+				weight = 1
+			[[languages.es.menu.item]]
+				name = "SOBRE MI"
+				url = "/about"
+				weight = 2
 
 [[params.social]]
     name = "Github"

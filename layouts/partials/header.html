@@ -7,24 +7,22 @@
             <h1 class="title is-1">
                 {{- .Title -}}
             </h1>
-            <h2 class="subtitle">
+            <div class="subtitle">
 	            {{ if .Params.Date }}
 				<i class="fas fa-calendar"></i>&nbsp;{{- .Date.Format ( .Site.Params.dateFormat | default "2006-01-02") -}}&nbsp;&nbsp;&nbsp;
 				{{ end }}
 				{{ if .Params.ReadTime }}
-	            <i class="fas fa-clock"></i>&nbsp;{{ .ReadingTime }} minute read
+	            <i class="fas fa-clock"></i>&nbsp;{{ i18n "readtime" .ReadingTime }}
 				{{ end }}
-            </h2>
+            </div>
 			{{ if .Params.tags }}
+			<div class="tags">
             {{ range .Params.tags }}
-            <a href="{{- (urlize (printf "tags/%s/" .)) | absLangURL -}}" class="tag is-light">{{- . -}}</a>
+				<a href="{{- (urlize (printf "tags/%s/" .)) | absLangURL -}}" class="tag is-light">{{- . -}}</a>
 			{{ end }}
-			<br>
+			</div>
 			{{ end }}
 			{{ if .Description }}
-            {{ if .Params.Date }}
-            <br>
-            {{ end }}
             <p {{ if not .Params.Date }}class="subtitle"{{ end }}>
                 {{- .Description -}}
             </p>

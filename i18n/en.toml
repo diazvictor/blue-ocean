@@ -1,0 +1,46 @@
+# Menu
+[translations]
+other = "TRANSLATIONS"
+
+# Sidebar
+[aboutbox]
+other = "ABOUT ME"
+
+[latest_posts]
+other = "LATEST POSTS"
+
+[categories]
+other = "CATEGORIES"
+
+[tags]
+other = "TAGS"
+
+[toc]
+other = "LIST OF CONTENTS"
+
+# List Post
+[readmore]
+other = "Read More"
+
+[readtime]
+other = "{{ .Count }} minute read"
+
+[previous]
+other = "Previous"
+
+[next]
+other = "Next"
+
+# 404
+[404_go_back]
+other = "Go Back"
+
+[404_msg]
+other = "The requested resource does not exist."
+
+# Footer
+[copyright]
+other = "Built with <a href=\"https://gohugo.io/\" target=\"_blank\" class=\"has-text-white\"><u>Hugo</u></a> and <a href=\"https://bulma.io/\" class=\"has-text-white\"><u>Bulma</u></a>"
+
+[theme_name]
+other = "Theme"

@@ -1,4 +1,4 @@
-![Blue Ocean Screenshot](https://github.com/diazvictor/blue-ocean/blob/master/images/screenshot.png)
+![Screenshot](https://github.com/diazvictor/blue-ocean/blob/master/images/screenshot.png)
 
 A responsive, clean and content-focused [Hugo](https://gohugo.io/) theme.
 
@@ -16,11 +16,11 @@ See [here](http://diazvictor.github.io/).
 
 - [x] Dark theme
 - [x] 404 page functional
-- [ ] Multilangual
+- [x] Multilangual
 - [ ] Table of contents
 - [ ] Search bar
 
 ## License
 
-Blue Ocean is licensed under the [MIT license](https://github.com/diazvictor/blue-ocean/blob/master/LICENSE).
+Blue Ocean is licensed under the [MIT license](https://github.com/diazvictor/blue-ocean/blob/master/LICENSE.md).
 

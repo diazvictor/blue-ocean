@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="{{ .Site.Language.Lang }}">
 {{- partial "head.html" . -}}
 <body>
 	<div class="hero is-info is-fullheight">
@@ -7,12 +7,11 @@
             <div class="container has-text-centered">
 				<h1 class="title is-404">{404}</h1>
 				<br>
-				<h1 class="subtitle is-4">The requested resource does not exist.</h1>
-				<a id="redirectBtn" href="javascript:0;" class="button is-link is-hovered is-large">← Go Back</a>
+				<h1 class="subtitle is-4">{{ T "404_msg" }}</h1>
+				<a href="javascript:0;" class="button is-link is-hovered is-large" onclick="history.back()">← {{ T "404_go_back" }}</a>
 			</div>
 		</div>
 	</div>
 	<script type="text/javascript" src="{{ $.Site.BaseURL }}js/toggle-theme.js"></script>
-	<script type="text/javascript" src="{{ $.Site.BaseURL }}js/404-redirect.js"></script>
 </body>
 </html>

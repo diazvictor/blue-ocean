@@ -3,17 +3,17 @@
     <title>{{if .IsHome}}{{ $.Site.Title }}{{else}}{{.Title}} - {{ $.Site.Title }}{{end}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="author" content="{{if .IsHome}}{{ $.Site.Params.author }}{{else}}{{.Params.Author}}{{end}}">
-    <meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}">
+    <meta name="author" content="{{ or .Params.Author $.Site.Params.author }}">
+    <meta name="description" content="{{ or .Description $.Site.Params.description }}">
     <meta name="keywords" content="{{if .IsHome}}{{ $.Site.Params.keywords }}{{ else if .Keywords }}{{ delimit .Keywords ", " }}{{ else if and .IsPage .Params.tags }}{{ delimit .Params.tags ", " }}{{ end }}">
-    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ $.Site.BaseURL }}images/favicon.png" type="image/x-icon">
 	<!-- Bulma -->
-    <link rel="stylesheet" href="{{ $.Site.BaseURL | relLangURL }}css/bulma.min.css">
+    <link rel="stylesheet" href="{{ $.Site.BaseURL }}css/bulma.min.css">
     <!-- Custom Styles -->
-    <link rel="stylesheet" href="{{ $.Site.BaseURL | relLangURL }}css/custom.css">
-    <link rel="stylesheet" href="{{ $.Site.BaseURL | relLangURL }}css/custom-dark.css">
+    <link rel="stylesheet" href="{{ $.Site.BaseURL }}css/custom.css">
+    <link rel="stylesheet" href="{{ $.Site.BaseURL }}css/custom-dark.css">
     <!-- Font Awesome 5 -->
-	<link rel="stylesheet" href="{{ $.Site.BaseURL | relLangURL }}css/all.min.css">
+	<link rel="stylesheet" href="{{ $.Site.BaseURL }}css/all.min.css">
 	{{ with .OutputFormats.Get "rss" -}}
 	{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
 	{{ end -}}

@@ -1,32 +1,50 @@
 <nav class="navbar is-transparent">
-    <div class="container">
-        <div class="navbar-brand">
-            <a href="/" class="navbar-item is-size-3 is-uppercase">
-                {{ .Site.Params.author }}
-            </a>
-            <span class="navbar-burger burger" data-target="navbarMenuHeroB">
-                <span></span>
-                <span></span>
-                <span></span>
-            </span>
-        </div>
-        <div class="navbar-menu">
-            <div class="navbar-end">
-				{{ if .Site.Menus.item }}
-					{{ $inNav := 0 }}
-			        {{ $currentPage := . }}
-			        {{ range sort .Site.Menus.item "Weight" "asc" }}
-			        <a href="{{ .URL }}" class="navbar-item">{{ .Name }}</a>
-			        {{ end }}
-			    {{ end }}
-				<div class="navbar-item">
-					<a id="toggle-theme" class="button is-info is-rounded is-hovered is-medium" title="Dark mode">
-						<span class="icon">
-							<i class="fas fa-moon"></i>
-						</span>
+	<div class="container">
+		<div class="navbar-brand">
+			{{ with .Site.Params.author }}
+			<a href="{{ $.Site.BaseURL | relLangURL }}" class="navbar-item is-size-3 is-uppercase">
+				{{ . }}
+			</a>
+			{{ end }}
+			<div class="navbar-item">
+				<a id="toggle-theme" class="button is-info is-rounded is-hovered is-medium" title="Dark mode">
+					<span class="icon">
+						<i class="fas fa-moon"></i>
+					</span>
+				</a>
+			</div>
+
+			<span class="navbar-burger burger" data-target="navbarMenuHeroB">
+				<span></span>
+				<span></span>
+				<span></span>
+			</span>
+
+		</div>
+		<div class="navbar-menu">
+			<div class="navbar-end">
+			{{ if .Site.Menus.item }}
+				{{ $inNav := 0 }}
+				{{ $currentPage := . }}
+				{{ range sort .Site.Menus.item "Weight" "asc" }}
+				<a href="{{ .URL | absLangURL }}" class="navbar-item">{{ .Name }}</a>
+				{{ end }}
+			{{ end }}
+			{{ if .IsTranslated }}
+				<div class="navbar-item has-dropdown is-hoverable">
+					<a class="navbar-link has-text-white">
+						{{ T "translations" }}
 					</a>
+					<div class="navbar-dropdown is-boxed is-uppercase">
+						{{ range .Translations }}
+						<a href="{{ .Permalink }}" class="navbar-item">
+							{{ .Language.Lang }}
+						</a>
+						{{ end }}
+					</div>
 				</div>
-            </div>
-        </div>
-    </div>
+			{{ end }}
+			</div>
+		</div>
+	</div>
 </nav>

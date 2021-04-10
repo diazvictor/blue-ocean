@@ -1,0 +1,47 @@
+# Menu
+[translations]
+other = "TRADUCCIONES"
+
+# Barra lateral
+[aboutbox]
+other = "SOBRE MI"
+
+[latest_posts]
+other = "MÁS RECIENTES"
+
+[categories]
+other = "CATEGORÍAS"
+
+[tags]
+other = "ETIQUETAS"
+
+[toc]
+other = "LISTA DE CONTENIDO"
+
+# Lista de articulos
+[readmore]
+other = "Leer Más"
+
+[readtime]
+one = "Un minuto de lectura"
+other = "{{ .Count }} minutos de lectura."
+
+[previous]
+other = "Anterior"
+
+[next]
+other = "Siguiente"
+
+# 404
+[404_go_back]
+other = "Volver"
+
+[404_msg]
+other = "El recurso solicitado no existe."
+
+# Pie de página
+[copyright]
+other = "Construido con <a href=\"https://gohugo.io/\" target=\"_blank\" class=\"has-text-white\"><u>Hugo</u></a> y <a href=\"https://bulma.io/\" class=\"has-text-white\"><u>Bulma</u></a>"
+
+[theme_name]
+other = "Tema"

@@ -7,16 +7,16 @@
                 <h1 class="title">{{ .Title }}</h1>
             </a>
             <i class="fas fa-calendar"></i>&nbsp;<time>{{- .Date.Format (.Site.Params.dateFormat | default "2 January, 2006" ) -}}</time>
-            {{ if .Site.Params.readTime_post }}
-			&nbsp;<i class="fas fa-clock"></i>&nbsp;{{ .ReadingTime }} minute read
+            {{ if .Site.Params.readtime }}
+			&nbsp;<i class="fas fa-clock"></i>&nbsp;{{ i18n "readtime" .ReadingTime }}
 			{{ end }}
         </header>
-        {{ if .Summary }}
+        {{ if or .Description .Summary }}
         <br>
-        <p>{{ .Summary }}</p>
+        <p>{{ or .Description .Summary }}</p>
+		<br>
         <footer>
-            <br>
-            <a href="{{.RelPermalink}}" class="button is-link">Read More &raquo;</a>
+            <a href="{{.RelPermalink}}" class="button is-link">{{ T "readmore" }} &raquo;</a>
         </footer>
         {{ end }}
     </article>
@@ -25,16 +25,18 @@
 
 	{{ if (gt .Paginator.TotalPages 1) }}
     <nav class="pagination" role="navigation" aria-label="pagination">
+		{{ $previous := T "previous" }}
+		{{ $next := T "next" }}
 		{{ if .Paginator.HasPrev }}
-		<a href="{{ .Paginator.Prev.URL }}" class="pagination-previous">Previous</a>
+		<a href="{{ .Paginator.Prev.URL }}" class="pagination-previous">{{ $previous }}</a>
 		{{ else }}
-		<a class="pagination-previous" disabled>Previous</a>
+		<a class="pagination-previous" disabled>{{ $previous }}</a>
 		{{ end }}
 
 		{{ if .Paginator.HasNext }}
-		<a href="{{ .Paginator.Next.URL }}" class="pagination-next">Next page</a>
+		<a href="{{ .Paginator.Next.URL }}" class="pagination-next">{{ $next }}</a>
 		{{ else }}
-			<a class="pagination-next" disabled>Next page</a>
+			<a class="pagination-next" disabled>{{ $next }}</a>
 		{{ end }}
 
 		<ul class="pagination-list">
