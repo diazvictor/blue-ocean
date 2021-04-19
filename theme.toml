@@ -3,20 +3,20 @@
 
 name = "Blue Ocean"
 license = "MIT"
-licenselink = "https://github.com/diazvictor/blue-ocean/blob/master/LICENSE"
+licenselink = "https://github.com/diazvictor/blue-ocean/blob/master/LICENSE.md"
 description = "Blue Ocean is a responsive, clean and content-focused Hugo theme."
 homepage = "http://diazvictor.github.io/"
 tags = [
-  "blog",
-  "responsive",
-  "clean",
-  "personal",
-  "widgets",
-  "bulma"
+	"blog",
+	"responsive",
+	"clean",
+	"personal",
+	"widgets",
+	"bulma"
 ]
 features = ["blog", "responsive", "widgets", "bulma", "personal"]
 min_version = "0.54"
 
 [author]
-  name = "Víctor Eduardo Diex Díaz Urbaneja"
-  homepage = "http://diazvictor.github.io/"
+	name = "Víctor Eduardo Diex Díaz Urbaneja"
+	homepage = "http://diazvictor.github.io/"
