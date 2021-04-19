@@ -18,6 +18,9 @@ other = "TAGS"
 [toc]
 other = "LIST OF CONTENTS"
 
+[search]
+other = "Search..."
+
 # List Post
 [readmore]
 other = "Read More"
@@ -40,7 +43,7 @@ other = "The requested resource does not exist."
 
 # Footer
 [copyright]
-other = "Built with <a href=\"https://gohugo.io/\" target=\"_blank\" class=\"has-text-white\"><u>Hugo</u></a> and <a href=\"https://bulma.io/\" class=\"has-text-white\"><u>Bulma</u></a>"
+other = "Powered by <a href=\"https://gohugo.io/\" target=\"_blank\" class=\"has-text-white\"><u>Hugo</u></a>"
 
 [theme_name]
-other = "Theme"
+other = "Theme is"

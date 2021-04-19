@@ -1,20 +1,97 @@
 <head>
-    <meta charset="UTF-8">
-    <title>{{if .IsHome}}{{ $.Site.Title }}{{else}}{{.Title}} - {{ $.Site.Title }}{{end}}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="author" content="{{ or .Params.Author $.Site.Params.author }}">
-    <meta name="description" content="{{ or .Description $.Site.Params.description }}">
-    <meta name="keywords" content="{{if .IsHome}}{{ $.Site.Params.keywords }}{{ else if .Keywords }}{{ delimit .Keywords ", " }}{{ else if and .IsPage .Params.tags }}{{ delimit .Params.tags ", " }}{{ end }}">
-    <link rel="shortcut icon" href="{{ $.Site.BaseURL }}images/favicon.png" type="image/x-icon">
+	<meta charset="UTF-8">
+	<meta name="language" content="{{ .Language.LanguageName }}">
+	<meta property="og:locale" content="{{ $.Site.Language.Lang }}">
+	{{ range .AllTranslations }}
+		<link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ .Language.LanguageName }}">
+	{{ end }}
+	<title>{{ .Title }}</title>
+	<meta name="application-name" content="{{ .Title }}">
+	<meta property="og:title" content="{{ .Title }}">
+	<meta property="og:site_name" content="{{ .Title }}">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	{{ with or .Description $.Site.Params.description }}
+		<meta name="description" content="{{ . }}">
+		<meta property="og:description" content="{{ . }}">
+	{{ end }}
+	<meta name="keywords" content="{{ with .Params.Keywords }}{{ delimit . ", " }}{{ else }}{{ $.Site.Params.Keywords }}{{ end }}">
+	<base href="{{ .Permalink }}">
+	<meta name="url" content="{{ .Permalink }}">
+	<link rel="canonical" href="{{ .Permalink }}">
+	<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+	<meta property="og:url" content="{{ .Permalink }}">
+
+	<link rel="shortcut icon" href="{{ $.Site.BaseURL }}images/favicon.png" type="image/x-icon">
 	<!-- Bulma -->
-    <link rel="stylesheet" href="{{ $.Site.BaseURL }}css/bulma.min.css">
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="{{ $.Site.BaseURL }}css/custom.css">
-    <link rel="stylesheet" href="{{ $.Site.BaseURL }}css/custom-dark.css">
-    <!-- Font Awesome 5 -->
+	<link rel="stylesheet" href="{{ $.Site.BaseURL }}css/bulma.min.css">
+	<!-- Custom Styles -->
+	<link rel="stylesheet" href="{{ $.Site.BaseURL }}css/custom.css">
+	<link rel="stylesheet" href="{{ $.Site.BaseURL }}css/custom-dark.css">
+	<!-- Font Awesome 5 -->
 	<link rel="stylesheet" href="{{ $.Site.BaseURL }}css/all.min.css">
-	{{ with .OutputFormats.Get "rss" -}}
-	{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
-	{{ end -}}
+
+	{{ if and (not .IsHome) (isset .Params "cover") }}
+		<meta property="og:image" content="{{ .Param "cover" | absURL }}">
+		<meta property="og:image:width" content="2048">
+		<meta property="og:image:height" content="1024">
+	{{ else }}
+		<meta property="og:image" content="{{ $.Site.BaseURL }}images/favicon.png">
+	{{ end }}
+
+
+	{{ range .Params.categories }}
+		<meta property="article:section" content="{{ . }}">
+	{{ end }}
+
+	{{ if isset .Params "date" }}
+		<meta property="article:published_time" content="{{ time .Date }}">
+	{{ end }}
+
+	<!-- RSS -->
+	{{ with .OutputFormats.Get "RSS" }}
+		<link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}">
+	{{ end }}
+
+	<!-- JSON Feed -->
+	{{ with .OutputFormats.Get "json" }}
+		<link href="{{ .RelPermalink }}" rel="alternate" type="application/json" title="{{ $.Site.Title }}">
+	{{ end }}
+
+	{{ if eq .Section "post" }}
+		{{ with or .Params.Author $.Site.Params.author }}
+			<meta property="og:article:author" content="{{ humanize . }}">
+			<meta property="article:author" content="{{ humanize . }}"> 
+			<meta name="author" content="{{ humanize . }}">
+		{{ end }}
+
+		<script defer type="application/ld+json">
+			{
+				"@context": "http://schema.org",
+				"@type": "Article",
+				"headline": "{{if .IsHome}}{{ $.Site.Title }}{{else}}{{.Title}} - {{ $.Site.Title }}{{end}}",
+				"author": {
+					"@type": "Person",
+					"name": "{{ .Site.Params.author }}"
+				},
+				"datePublished": "{{ .Date.Format "2006-01-02" }}",
+				"description": {{ or .Description $.Site.Params.description }},
+				"wordCount": {{ .WordCount }},
+				"mainEntityOfPage": "True",
+				"dateModified": "{{ .Lastmod.Format "2006-01-02" }}",
+				"image": {
+					"@type": "imageObject",
+					"url": "{{ with .Params.image }}{{ .Permalink }}{{ end }}"
+				},
+				"publisher": {
+					"@type": "Organization",
+					"name": "{{ $.Site.Title }}",
+					"logo": {
+						"@type": "imageObject",
+						"url": "{{ $.Site.BaseURL }}images/favicon.ico"
+					}
+				}
+			}
+	  </script>
+	{{ end }}
 </head>

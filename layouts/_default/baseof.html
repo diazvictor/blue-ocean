@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
-    {{- partial "head.html" . -}}
-    <body id="top">
-        {{- partial "header.html" . -}}
-        <div id="content">
-        {{- block "main" . }}{{- end }}
-        </div>
-        {{- partial "footer.html" . -}}
-    </body>
+<html prefix="og: http://ogp.me/ns#" lang="{{ $.Site.Language.Lang }}">
+{{- partial "head.html" . -}}
+<body id="top">
+	{{- partial "header.html" . -}}
+	<div id="content">
+	{{- block "main" . }}{{- end }}
+	</div>
+	{{- partial "footer.html" . -}}
+</body>
 </html>

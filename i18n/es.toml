@@ -18,6 +18,9 @@ other = "ETIQUETAS"
 [toc]
 other = "LISTA DE CONTENIDO"
 
+[search]
+other = "Buscar..."
+
 # Lista de articulos
 [readmore]
 other = "Leer Más"
@@ -41,7 +44,7 @@ other = "El recurso solicitado no existe."
 
 # Pie de página
 [copyright]
-other = "Construido con <a href=\"https://gohugo.io/\" target=\"_blank\" class=\"has-text-white\"><u>Hugo</u></a> y <a href=\"https://bulma.io/\" class=\"has-text-white\"><u>Bulma</u></a>"
+other = "Construido con <a href=\"https://gohugo.io/\" target=\"_blank\" class=\"has-text-white\"><u>Hugo</u></a>"
 
 [theme_name]
 other = "Tema"

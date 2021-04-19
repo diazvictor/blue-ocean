@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}">
+<html prefix="og: http://ogp.me/ns#" lang="{{ $.Site.Language.Lang }}">
 {{- partial "head.html" . -}}
 <body>
 	<section class="hero is-info is-fullheight">
@@ -10,21 +10,25 @@
             <div class="container has-text-centered">
 				<center>
                     <figure class="image is-128x128">
-                        <img class="is-rounded" src="{{ .Site.Params.avatar }}">
+                        <img class="is-rounded" src="{{ $.Site.Params.avatar }}">
                     </figure>
                 </center>
                 <br>
 				<h1 class="title author">
-					{{ .Site.Author.author }}
+					{{ $.Site.Author.author }}
                 </h1>
-				{{ with .Site.Params.subtitle }}
+				{{ with $.Site.Params.subtitle }}
 				<h2 class="subtitle">
                     {{ . }}
                 </h2>
 				{{ end }}
 				<div class="social-nav">
-					{{ range sort .Site.Params.social "weight" }}
-					<a href="{{ .url }}" class="has-text-white" target="_blank" data-size="large"><u>{{ .name }}</u></a>
+					<!-- https://stackoverflow.com/questions/59565101/hugo-list-tags-with-link-and-comma-separated -->
+					{{ range $i, $v := sort .Site.Params.social "weight" }}
+						{{ if $v.name }}
+						{{ if $i }}| {{ end }}
+							<a href="{{ $v.url }}" target="_blank" data-size="large"><u>{{ $v.name }}</u></a>
+						{{ end }}
 					{{ end }}
 				</div>
 			</div>

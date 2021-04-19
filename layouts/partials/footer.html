@@ -15,9 +15,19 @@
 		</div>
 		{{ end }}
 		{{ end }}
-		<p class="has-text-centered">
-			{{ with .Site.Params.copyright }} {{ . }} ·{{ end }} {{ T "copyright" | safeHTML }} · {{ T "theme_name" }} <a href="http://diazvictor.github.io/blue-ocean/" target="_blank" class="has-text-white"><u>Blue Ocean</u></a>
+		<p class="has-text-centered" style="margin-bottom: 10px !important;">
+			{{ with .Site.Params.copyright }} {{ . }}{{ end }}
 		</p>
+		<p class="has-text-centered">
+			{{ T "copyright" | safeHTML }} | {{ T "theme_name" }} <a href="http://diazvictor.github.io/blue-ocean/" target="_blank" class="has-text-white"><u>Blue Ocean</u></a>
+		</p>
+<!--
+		<div class="columns">
+			<div class="column has-text-left">{{ T "copyright" | safeHTML }}</div>
+			<div class="column has-text-centered">{{ with .Site.Params.copyright }} {{ . }} {{ end }}</div>
+			<div class="column has-text-right">{{ T "theme_name" }} <a href="http://diazvictor.github.io/blue-ocean/" target="_blank" class="has-text-white"><u>Blue Ocean</u></a></div>
+		</div>
+-->
 		{{ if .Site.Params.widgets.scrolltop }}
 		<div class="buttons">
 			<a href="#top" class="has-text-centered">
@@ -29,4 +39,5 @@
 </footer>
 <script type="text/javascript" src="{{ $.Site.BaseURL }}js/nav-burger.js"></script>
 <script type="text/javascript" src="{{ $.Site.BaseURL }}js/toggle-theme.js"></script>
+<script type="text/javascript" src="{{ $.Site.BaseURL }}js/searchbox.js"></script>
 {{ end }}
